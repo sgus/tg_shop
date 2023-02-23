@@ -112,7 +112,7 @@ public class Main implements TelegramMvcController {
                       new InlineKeyboardButton("Switch!").switchInlineQuery("switch_inline_query")));
     }
 
-    @BotRequest("/start4")
+    @BotRequest("/start4 ")
     BaseRequest hello4(String text,
                        TelegramRequest telegramRequest,
                        TelegramBot telegramBot,
