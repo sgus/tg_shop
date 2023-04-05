@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: GeorgeU
+      changes:
+        - createTableIfNotExists
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: GeorgeU
+      changes:
+        - createTableIfNotExists
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: first_name
+                  value: George
+              - column:
+                  name: last_name
+                  value: Ussatov
+      # Также поддерживает использование внешних файлов SQL (лично это предпочитает TODO)
+  - include:
+      file: classpath:db/changelog/sqlfile/migration.sql
